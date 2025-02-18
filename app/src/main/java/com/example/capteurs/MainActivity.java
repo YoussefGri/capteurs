@@ -2,17 +2,11 @@ package com.example.capteurs;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
-
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.MarginPageTransformer;
 import androidx.viewpager2.widget.ViewPager2;
-
-
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,18 +16,18 @@ public class MainActivity extends AppCompatActivity {
     private Handler sliderHandler = new Handler();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         viewPager2 = findViewById(R.id.viewPagerImageSlider);
 
         List<SliderItem> sliderItems = new ArrayList<>();
-        sliderItems.add(new SliderItem(R.drawable.image1));
-        sliderItems.add(new SliderItem(R.drawable.image2));
-        sliderItems.add(new SliderItem(R.drawable.image3));
-        sliderItems.add(new SliderItem(R.drawable.image4));
-        sliderItems.add(new SliderItem(R.drawable.image5));
+        sliderItems.add(new SliderItem(R.drawable.image1, "Liste de capteurs"));
+        sliderItems.add(new SliderItem(R.drawable.image2, "Détection de capteurs"));
+        sliderItems.add(new SliderItem(R.drawable.image3, "Accéléromètre"));
+        sliderItems.add(new SliderItem(R.drawable.image4, "Direction du mouvement"));
+        sliderItems.add(new SliderItem(R.drawable.image5, "Secouer l’appareil"));
 
         viewPager2.setAdapter(new SliderAdapter(sliderItems, viewPager2));
         viewPager2.setClipToPadding(false);
@@ -43,12 +37,9 @@ public class MainActivity extends AppCompatActivity {
 
         CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
         compositePageTransformer.addTransformer(new MarginPageTransformer(40));
-        compositePageTransformer.addTransformer(new ViewPager2.PageTransformer() {
-            @Override
-            public void transformPage(View page, float position) {
-                float r = 1 - Math.abs(position);
-                page.setScaleY(0.85f + r * 0.15f);
-            }
+        compositePageTransformer.addTransformer((page, position) -> {
+            float r = 1 - Math.abs(position);
+            page.setScaleY(0.85f + r * 0.15f);
         });
 
         viewPager2.setPageTransformer(compositePageTransformer);
@@ -58,12 +49,10 @@ public class MainActivity extends AppCompatActivity {
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
                 sliderHandler.removeCallbacks(sliderRunner);
-                sliderHandler.postDelayed(sliderRunner, 3000); // slide delay
+                sliderHandler.postDelayed(sliderRunner, 3000);
             }
         });
-
     }
-
 
     private Runnable sliderRunner = new Runnable() {
         @Override
@@ -81,9 +70,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        sliderHandler.postDelayed(sliderRunner, 3000); // slide delay
+        sliderHandler.postDelayed(sliderRunner, 3000);
     }
-
-
-
 }
