@@ -5,10 +5,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@color/backgroundColor"
+    android:background="@drawable/background_gradient"
     android:gravity="center">
 
-    <!-- Barre d'en-tête avec icône -->
+    <!-- Titre avec une icône -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,30 +17,31 @@
         android:paddingBottom="12dp">
 
         <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:src="@drawable/ic_sensor_off"
-            android:layout_marginEnd="8dp"
-            app:tint="@color/iconColor" />
+            android:tint="@color/iconColor"
+            android:layout_marginEnd="10dp" />
 
         <TextView
             android:id="@+id/tv_unavailable_sensors"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Capteurs non disponibles"
-            android:textSize="20sp"
+            android:textSize="22sp"
             android:textStyle="bold"
-            android:textColor="@color/titleColor" />
+            android:textColor="@color/titleColor"/>
     </LinearLayout>
 
-    <!-- Cadre arrondi pour la liste -->
-    <androidx.cardview.widget.CardView
+    <!-- Carte contenant la liste des capteurs -->
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="12dp"
-        app:cardElevation="4dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="6dp"
+        android:padding="10dp"
         android:background="@color/cardBackground"
-        android:padding="8dp">
+        android:layout_marginBottom="16dp">
 
         <ListView
             android:id="@+id/list_unavailable_sensors"
@@ -51,6 +52,6 @@
             android:padding="8dp"
             android:scrollbarStyle="insideInset"
             android:background="@android:color/white"/>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>

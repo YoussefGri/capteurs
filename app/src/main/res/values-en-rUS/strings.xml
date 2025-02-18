@@ -10,6 +10,13 @@
     <string name="maximum_range">maximum Range</string>
     <string name="minimum_delay">Minimum Delay</string>
     <string name="unavailable_sensors_title">Unavailable sensors (%d)</string>
+    <string name="sensors_list">Sensors list</string>
+    <string name="sensors_detection">Detection of unavailable sensors</string>
+    <string name="accelerometer">Accelerometer</string>
+    <string name="shake">Shake</string>
+    <string name="proximity">Proximity</string>
+    <string name="Geolocalisation">Geolocation</string>
+    <string name="directions">Directions</string>
 
 
 </resources>

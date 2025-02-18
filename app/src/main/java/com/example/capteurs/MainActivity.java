@@ -23,11 +23,14 @@ public class MainActivity extends AppCompatActivity {
         viewPager2 = findViewById(R.id.viewPagerImageSlider);
 
         List<SliderItem> sliderItems = new ArrayList<>();
-        sliderItems.add(new SliderItem(R.drawable.listecapteurs, "Liste de capteurs", ListeCapteursActivity.class));
-        sliderItems.add(new SliderItem(R.drawable.image2, "Détection de capteurs non disponibles", SensorUnavailableActivity.class));
-        sliderItems.add(new SliderItem(R.drawable.image3, "Accéléromètre", DirectionActivity.class));
-        sliderItems.add(new SliderItem(R.drawable.image4, "Direction", SecouerActivity.class));
-        sliderItems.add(new SliderItem(R.drawable.image5, "Secouer l’appareil", ProximiteActivity.class));
+        sliderItems.add(new SliderItem(R.drawable.listecapteurs, getString(R.string.sensors_list), ListeCapteursActivity.class));
+        sliderItems.add(new SliderItem(R.drawable.detection_indispo, getString(R.string.sensors_detection), SensorUnavailableActivity.class));
+        sliderItems.add(new SliderItem(R.drawable.accelerometre, getString(R.string.accelerometer), AccelerometreActivity.class));
+        sliderItems.add(new SliderItem(R.drawable.secouer, getString(R.string.shake), SecouerActivity.class));
+        sliderItems.add(new SliderItem(R.drawable.proximite, getString(R.string.proximity), ProximiteActivity.class));
+        sliderItems.add(new SliderItem(R.drawable.geolocalisation, getString(R.string.Geolocalisation), GeolocalisationActivity.class));
+        sliderItems.add(new SliderItem(R.drawable.directions, getString(R.string.directions), DirectionActivity.class));
+
 
         viewPager2.setAdapter(new SliderAdapter(sliderItems, viewPager2));
         viewPager2.setClipToPadding(false);

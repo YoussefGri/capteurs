@@ -8,6 +8,13 @@
     <string name="maximum_range">Portée Max</string>
     <string name="minimum_delay">Délai Min</string>
     <string name="unavailable_sensors_title">Capteurs non disponibles (%d)</string>
+    <string name="sensors_list">Liste de capteurs</string>
+    <string name="sensors_detection">Detection de capteurs indisponibles</string>
+    <string name="accelerometer">Accéléromètre</string>
+    <string name="shake">Secouer</string>
+    <string name="proximity">Proximité</string>
+    <string name="Geolocalisation">Géolocalisation</string>
+    <string name="directions">Directions</string>
 
 
 </resources>
