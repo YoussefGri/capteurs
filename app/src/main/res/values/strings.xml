@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">capteurs</string>
+    <string name="app_name">Capteurs-List</string>
+    <string name="type">Type</string>
+    <string name="version">Version</string>
+    <string name="resolution">Résolution</string>
+    <string name="power">Puissance</string>
+    <string name="vendor">Fabriquant</string>
+    <string name="maximum_range">Portée Max</string>
+    <string name="minimum_delay">Délai Min</string>
+    <string name="unavailable_sensors_title">Capteurs non disponibles (%d)</string>
+
+
 </resources>

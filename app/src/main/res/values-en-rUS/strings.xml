@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">capteurs</string>
+    <string name="type">Type</string>
+    <string name="version">Version</string>
+    <string name="power">Power</string>
+    <string name="resolution">Resolution</string>
+    <string name="vendor">Vendor</string>
+    <string name="maximum_range">maximum Range</string>
+    <string name="minimum_delay">Minimum Delay</string>
+    <string name="unavailable_sensors_title">Unavailable sensors (%d)</string>
+
+
+</resources>

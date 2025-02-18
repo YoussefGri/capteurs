@@ -23,11 +23,11 @@ public class MainActivity extends AppCompatActivity {
         viewPager2 = findViewById(R.id.viewPagerImageSlider);
 
         List<SliderItem> sliderItems = new ArrayList<>();
-        sliderItems.add(new SliderItem(R.drawable.image1, "Liste de capteurs"));
-        sliderItems.add(new SliderItem(R.drawable.image2, "Détection de capteurs"));
-        sliderItems.add(new SliderItem(R.drawable.image3, "Accéléromètre"));
-        sliderItems.add(new SliderItem(R.drawable.image4, "Direction du mouvement"));
-        sliderItems.add(new SliderItem(R.drawable.image5, "Secouer l’appareil"));
+        sliderItems.add(new SliderItem(R.drawable.listecapteurs, "Liste de capteurs", ListeCapteursActivity.class));
+        sliderItems.add(new SliderItem(R.drawable.image2, "Détection de capteurs non disponibles", SensorUnavailableActivity.class));
+        sliderItems.add(new SliderItem(R.drawable.image3, "Accéléromètre", DirectionActivity.class));
+        sliderItems.add(new SliderItem(R.drawable.image4, "Direction", SecouerActivity.class));
+        sliderItems.add(new SliderItem(R.drawable.image5, "Secouer l’appareil", ProximiteActivity.class));
 
         viewPager2.setAdapter(new SliderAdapter(sliderItems, viewPager2));
         viewPager2.setClipToPadding(false);

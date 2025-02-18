@@ -1,8 +1,12 @@
 package com.example.capteurs;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,7 +37,16 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderView
     @Override
     public void onBindViewHolder(@NonNull SliderViewHolder holder, int position) {
         holder.setImage(sliderItems.get(position));
-        if(position == getItemCount() - 2) {
+        holder.setTitle(sliderItems.get(position).getTitle());
+
+        // Gestion du clic pour ouvrir l'activité associée
+        holder.buttonOpenActivity.setOnClickListener(v -> {
+            Context context = v.getContext();
+            Intent intent = new Intent(context, sliderItems.get(position).getTargetActivity());
+            context.startActivity(intent);
+        });
+
+        if (position == getItemCount() - 2) {
             viewPager2.post(runnable);
         }
     }
@@ -46,14 +59,22 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderView
     class SliderViewHolder extends RecyclerView.ViewHolder {
 
         private RoundedImageView imageView;
+        private TextView titleView;
+        private Button buttonOpenActivity;
 
         SliderViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imageSlide);
+            titleView = itemView.findViewById(R.id.titleSlide);
+            buttonOpenActivity = itemView.findViewById(R.id.buttonOpenActivity);
         }
 
         void setImage(SliderItem sliderItem) {
             imageView.setImageResource(sliderItem.getImage());
+        }
+
+        void setTitle(String title) {
+            titleView.setText(title);
         }
     }
 
@@ -62,8 +83,6 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderView
         public void run() {
             sliderItems.addAll(sliderItems);
             notifyDataSetChanged();
-
         }
     };
-
 }
