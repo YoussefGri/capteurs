@@ -23,7 +23,10 @@
 
     <activity android:name=".ListeCapteursActivity"/>
     <activity android:name=".SensorUnavailableActivity"/>
+    <activity android:name=".AccelerometreActivity"/>
 
     </application>
+    <uses-permission android:name="android.permission.BODY_SENSORS"/>
+
 
 </manifest>
