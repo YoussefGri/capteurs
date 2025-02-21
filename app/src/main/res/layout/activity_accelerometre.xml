@@ -15,29 +15,44 @@
         android:layout_height="match_parent"
         android:background="@android:color/transparent" />
 
-    <!-- TextView pour afficher les valeurs de l'accéléromètre -->
-    <TextView
-        android:id="@+id/accelerationText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Accélération : 0.0"
-        android:textSize="18sp"
-        android:textColor="@android:color/black"
-        android:padding="16dp"
+    <!-- Conteneur de type carte surélevée -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_margin="16dp"
+        app:cardElevation="8dp"
+        app:cardCornerRadius="16dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <!-- TextView pour afficher un message dynamique -->
-    <TextView
-        android:id="@+id/messageText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bougez votre téléphone !"
-        android:textSize="24sp"
-        android:textColor="@android:color/holo_blue_dark"
-        android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- ImageView pour afficher l'image -->
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/image_faible" />
+
+            <!-- TextView pour afficher le message -->
+            <TextView
+                android:id="@+id/messageText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tout est calme..."
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:padding="16dp" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

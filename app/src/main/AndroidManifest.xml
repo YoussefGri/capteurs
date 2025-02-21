@@ -24,6 +24,7 @@
     <activity android:name=".ListeCapteursActivity"/>
     <activity android:name=".SensorUnavailableActivity"/>
     <activity android:name=".AccelerometreActivity"/>
+    <activity android:name=".DirectionActivity"/>
 
     </application>
     <uses-permission android:name="android.permission.BODY_SENSORS"/>

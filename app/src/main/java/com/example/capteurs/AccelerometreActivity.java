@@ -6,14 +6,17 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 public class AccelerometreActivity extends AppCompatActivity implements SensorEventListener {
 
     private SensorManager sensorManager;
     private BouleView bouleView;
-    private TextView accelerationText;
+    private CardView cardView;
+    private ImageView imageView;
     private TextView messageText;
 
     @Override
@@ -22,8 +25,9 @@ public class AccelerometreActivity extends AppCompatActivity implements SensorEv
         setContentView(R.layout.activity_accelerometre);
 
         bouleView = findViewById(R.id.bouleView); // Récupérer la vue personnalisée
-        accelerationText = findViewById(R.id.accelerationText); // Récupérer le TextView pour l'accélération
-        messageText = findViewById(R.id.messageText); // Récupérer le TextView pour le message
+        cardView = findViewById(R.id.cardView); // Récupérer la carte
+        imageView = findViewById(R.id.imageView); // Récupérer l'image
+        messageText = findViewById(R.id.messageText); // Récupérer le texte
 
         // Initialisation du gestionnaire de capteurs
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -39,18 +43,18 @@ public class AccelerometreActivity extends AppCompatActivity implements SensorEv
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
             float acceleration = Math.abs(event.values[0]) + Math.abs(event.values[1]) + Math.abs(event.values[2]);
 
-            // Mettre à jour le texte de l'accélération
-            accelerationText.setText(String.format("Accélération : %.2f", acceleration));
-
-            // Mettre à jour le message en fonction de l'intensité du mouvement
+            // Mettre à jour l'image et le message en fonction de l'intensité du mouvement
             if (acceleration < 10) {
+                imageView.setImageResource(R.drawable.image_faible); // Image pour faible vitesse
                 messageText.setText("Tout est calme...");
-                messageText.setTextColor(Color.GREEN);
+                messageText.setTextColor(Color.WHITE);
             } else if (acceleration >= 10 && acceleration < 12) {
+                imageView.setImageResource(R.drawable.image_moy); // Image pour vitesse moyenne
                 messageText.setText("On bouge un peu !");
                 messageText.setTextColor(Color.BLACK);
             } else {
-                messageText.setText("Ça secoue !");
+                imageView.setImageResource(R.drawable.image_fort); // Image pour vitesse élevée
+                messageText.setText("Doucement ça trop secoue là !");
                 messageText.setTextColor(Color.RED);
             }
 
@@ -63,7 +67,7 @@ public class AccelerometreActivity extends AppCompatActivity implements SensorEv
             // Changer la couleur de la boule selon les catégories
             if (acceleration < 10) {
                 bouleView.setColor(Color.GREEN); // Faible mouvement
-            } else if (acceleration >= 10 && acceleration < 20) {
+            } else if (acceleration >= 10 && acceleration < 12) {
                 bouleView.setColor(Color.BLACK); // Mouvement moyen
             } else {
                 bouleView.setColor(Color.RED); // Mouvement intense
