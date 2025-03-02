@@ -24,7 +24,6 @@ public class BouleView extends View {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        // Initialiser la position de la boule au centre de l'écran
         x = w / 2f;
         y = h / 2f;
     }

@@ -10,7 +10,7 @@
         android:id="@+id/dialog_sensor_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Capteur Inconnu"
+        android:text="@string/unknown_sensor"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/titleColor"
@@ -20,7 +20,7 @@
         android:id="@+id/dialog_feature_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fonctionnalités impactées"
+        android:text="@string/impacted_features"
         android:textSize="16sp"
         android:textColor="@color/titleColor"
         android:paddingBottom="10dp"/>
@@ -29,7 +29,7 @@
         android:id="@+id/dialog_close_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fermer"
+        android:text="@string/close"
         android:textSize="14sp"
         android:padding="8dp"
         android:textColor="@android:color/white"/>

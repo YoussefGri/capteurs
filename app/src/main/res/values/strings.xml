@@ -16,6 +16,39 @@
     <string name="Geolocalisation">Géolocalisation</string>
     <string name="directions">Directions</string>
     <string name="my_api_key">AIzaSyCzxvTUrHvmTCtvQ_HxfdfdBnTwX8O-yqo</string>
+    <string name="proximity_sensor_not_found">Capteur de proximité non disponible.</string>
+    <string name="proximity_object_near">Objet Proche 🔴</string>
+    <string name="proximity_object_far">Objet Loin 🟢</string>
+    <string name="access_denied_to_location">Permission de localisation non accordée.</string>
+    <string name="your_location">Vous êtes ici</string>
+    <string name="flash_on">Flash ALLUME 🔦</string>
+    <string name="flash_off">Flash ETEINT 🚫</string>
+    <string name="accelerometer_features">Jeux, détection de mouvement, podomètre.</string>
+    <string name="gyroscope_features">VR, stabilisation de l\'appareil photo, jeux en 3D.</string>
+    <string name="magnetometer_features">Boussole, navigation GPS améliorée.</string>
+    <string name="proximity_features">Extinction automatique de l\'écran lors des appels.</string>
+    <string name="light_features">Ajustement automatique de la luminosité.</string>
+    <string name="pressure_features">Prévisions météorologiques basées sur la pression.</string>
+    <string name="temperature_features">Détection de la température ambiante.</string>
+    <string name="humidity_features">Détection de l\'humidité ambiante.</string>
+    <string name="gravity_features">Optimisation du gyroscope et de l’accéléromètre.</string>
+    <string name="rotation_features">Jeux VR, orientation précise de l\'écran.</string>
+    <string name="heart_rate_features">Applications de suivi de la santé.</string>
+    <string name="step_counter_features">Suivi des pas et activités sportives.</string>
+    <string name="step_detector_features">Reconnaissance des mouvements de marche.</string>
+    <string name="no_info_available">Aucune information disponible.</string>
+    <string name="stable_position">Position Stable 📱</string>
+    <string name="up">Haut ⬆️</string>
+    <string name="down">Bas ⬇️</string>
+    <string name="left">Gauche ⬅️</string>
+    <string name="right">Droite ➡️</string>
+    <string name="unknown_sensor">Capteur Inconnu</string>
+    <string name="impacted_features">Fonctionnalités impactées</string>
+    <string name="close">Fermer</string>
+    <string name="see_more">Voir Plus</string>
+    <string name="message_faible">Tout est calme...</string>
+    <string name="message_moy">Ça bouge un peu !</string>
+    <string name="message_fort">Doucement ça secoue trop là !</string>
 
 
 </resources>

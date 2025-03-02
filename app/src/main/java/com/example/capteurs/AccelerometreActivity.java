@@ -43,18 +43,18 @@ public class AccelerometreActivity extends AppCompatActivity implements SensorEv
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
             float acceleration = Math.abs(event.values[0]) + Math.abs(event.values[1]) + Math.abs(event.values[2]);
 
-            // Mettre à jour l'image et le message en fonction de l'intensité du mouvement
+            // Misee à jour de l'image et du message en fonction de l'intensité du mouvement
             if (acceleration < 10) {
                 imageView.setImageResource(R.drawable.image_faible); // Image pour faible vitesse
-                messageText.setText("Tout est calme...");
+                messageText.setText(getString(R.string.message_faible));
                 messageText.setTextColor(Color.WHITE);
             } else if (acceleration >= 10 && acceleration < 12) {
                 imageView.setImageResource(R.drawable.image_moy); // Image pour vitesse moyenne
-                messageText.setText("On bouge un peu !");
+                messageText.setText(getString(R.string.message_moy));
                 messageText.setTextColor(Color.BLACK);
             } else {
                 imageView.setImageResource(R.drawable.image_fort); // Image pour vitesse élevée
-                messageText.setText("Doucement ça trop secoue là !");
+                messageText.setText(getString(R.string.message_fort));
                 messageText.setTextColor(Color.RED);
             }
 
@@ -77,7 +77,6 @@ public class AccelerometreActivity extends AppCompatActivity implements SensorEv
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        // Non utilisé
     }
 
     @Override

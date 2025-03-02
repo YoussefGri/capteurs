@@ -27,7 +27,7 @@
             android:id="@+id/tv_unavailable_sensors"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Capteurs non disponibles"
+            android:text="@string/unavailable_sensors_title"
             android:textSize="22sp"
             android:textStyle="bold"
             android:textColor="@color/titleColor"/>

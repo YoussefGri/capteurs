@@ -19,7 +19,6 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.tasks.OnSuccessListener;
 
 public class GeolocalisationActivity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -71,7 +70,7 @@ public class GeolocalisationActivity extends AppCompatActivity implements OnMapR
     // Démarrer les mises à jour de localisation
     private void startLocationUpdates() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(this, "Permission de localisation non accordée.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.access_denied_to_location), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -103,7 +102,7 @@ public class GeolocalisationActivity extends AppCompatActivity implements OnMapR
 
             // Ajouter un marqueur à la position de l'utilisateur
             myMap.clear(); // Effacer les anciens marqueurs
-            myMap.addMarker(new MarkerOptions().position(userLocation).title("Vous êtes ici"));
+            myMap.addMarker(new MarkerOptions().position(userLocation).title(getString(R.string.your_location)));
 
             // Déplacer la caméra vers la position de l'utilisateur
             myMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 15));
@@ -117,7 +116,7 @@ public class GeolocalisationActivity extends AppCompatActivity implements OnMapR
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 startLocationUpdates();
             } else {
-                Toast.makeText(this, "Permission de localisation refusée.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.access_denied_to_location), Toast.LENGTH_SHORT).show();
             }
         }
     }

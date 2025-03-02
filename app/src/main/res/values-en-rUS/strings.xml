@@ -17,6 +17,41 @@
     <string name="proximity">Proximity</string>
     <string name="Geolocalisation">Geolocation</string>
     <string name="directions">Directions</string>
+    <string name="my_api_key">AIzaSyCzxvTUrHvmTCtvQ_HxfdfdBnTwX8O-yqo</string>
+    <string name="proximity_sensor_not_found">Proximity sensor not available.</string>
+    <string name="proximity_object_near">Object Near 🔴</string>
+    <string name="proximity_object_far">Object Far 🟢</string>
+    <string name="access_denied_to_location">Location permission not granted.</string>
+    <string name="your_location">You are here</string>
+    <string name="flash_on">Flash ON 🔦</string>
+    <string name="flash_off">Flash OFF 🚫</string>
+    <string name="accelerometer_features">Games, motion detection, pedometer.</string>
+    <string name="gyroscope_features">VR, camera stabilization, 3D games.</string>
+    <string name="magnetometer_features">Compass, enhanced GPS navigation.</string>
+    <string name="proximity_features">Automatic screen turn-off during calls.</string>
+    <string name="light_features">Automatic brightness adjustment.</string>
+    <string name="pressure_features">Weather forecasts based on pressure.</string>
+    <string name="temperature_features">Ambient temperature detection.</string>
+    <string name="humidity_features">Ambient humidity detection.</string>
+    <string name="gravity_features">Gyroscope and accelerometer optimization.</string>
+    <string name="rotation_features">VR games, precise screen orientation.</string>
+    <string name="heart_rate_features">Health tracking applications.</string>
+    <string name="step_counter_features">Step tracking and sports activities.</string>
+    <string name="step_detector_features">Walking motion recognition.</string>
+    <string name="no_info_available">No information available.</string>
+    <string name="message_faible">Everything is calm...</string>
+    <string name="stable_position">Stable Position 📱</string>
+    <string name="up">Up ⬆️</string>
+    <string name="down">Down ⬇️</string>
+    <string name="left">Left ⬅️</string>
+    <string name="right">Right ➡️</string>
+    <string name="unknown_sensor">Unknown Sensor</string>
+    <string name="impacted_features">Impacted Features</string>
+    <string name="close">Close</string>
+    <string name="see_more">See More</string>
+    <string name="message_moy">It\'s moving a bit!</string>
+    <string name="message_fort">Slow down, it\'s shaking too much!</string>
+
 
 
 </resources>

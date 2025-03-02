@@ -31,7 +31,7 @@ public class ProximiteActivity extends AppCompatActivity implements SensorEventL
         if (proximitySensor != null) {
             sensorManager.registerListener(this, proximitySensor, SensorManager.SENSOR_DELAY_UI);
         } else {
-            statusTextView.setText("Capteur de proximité non disponible.");
+            statusTextView.setText(getString(R.string.proximity_sensor_not_found));
         }
     }
 
@@ -43,11 +43,11 @@ public class ProximiteActivity extends AppCompatActivity implements SensorEventL
             if (distance < proximitySensor.getMaximumRange()) {
                 // Objet proche
                 proximityImageView.setImageResource(R.drawable.image_proche);
-                statusTextView.setText("Objet Proche 🔴");
+                statusTextView.setText(getString(R.string.proximity_object_near));
             } else {
                 // Objet éloigné
                 proximityImageView.setImageResource(R.drawable.image_loin);
-                statusTextView.setText("Objet Loin 🟢");
+                statusTextView.setText(getString(R.string.proximity_object_far));
             }
         }
     }

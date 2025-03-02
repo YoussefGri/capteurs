@@ -1,25 +1,27 @@
 package com.example.capteurs;
 
 import android.content.Context;
+import android.hardware.Camera;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.hardware.camera2.CameraAccessException;
+import android.hardware.camera2.CameraManager;
+import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SecouerActivity extends AppCompatActivity implements SensorEventListener {
 
     private SensorManager sensorManager;
-    private boolean isFlashOn = false; // État du flash ou écran blanc
+    private boolean isFlashOn = false; // État du flash
     private long lastShakeTime = 0; // Temps du dernier mouvement détecté
     private static final int SHAKE_THRESHOLD = 15; // Seuil de détection de secousse
-    private TextView statusTextView; // Affichage de l'état
-    private Window window;
+    private TextView statusTextView; // Affichage de l'état du flash
+    private CameraManager cameraManager;
+    private String cameraId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +29,6 @@ public class SecouerActivity extends AppCompatActivity implements SensorEventLis
         setContentView(R.layout.activity_secouer);
 
         statusTextView = findViewById(R.id.statusTextView);
-        window = getWindow();
 
         // Initialisation du capteur
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -35,6 +36,14 @@ public class SecouerActivity extends AppCompatActivity implements SensorEventLis
 
         if (accelerometer != null) {
             sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_UI);
+        }
+
+        // Initialisation du gestionnaire de la caméra pour le flash
+        cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+        try {
+            cameraId = cameraManager.getCameraIdList()[0]; // Récupérer l'ID du flash
+        } catch (CameraAccessException e) {
+            e.printStackTrace();
         }
     }
 
@@ -50,25 +59,20 @@ public class SecouerActivity extends AppCompatActivity implements SensorEventLis
 
             if (acceleration > SHAKE_THRESHOLD && (currentTime - lastShakeTime > 1000)) {
                 lastShakeTime = currentTime;
-                toggleScreenTorch();
+                toggleFlash();
             }
         }
     }
 
-    private void toggleScreenTorch() {
-        isFlashOn = !isFlashOn;
-        if (isFlashOn) {
-            window.getDecorView().setBackgroundColor(getResources().getColor(android.R.color.white));
-            WindowManager.LayoutParams layoutParams = window.getAttributes();
-            layoutParams.screenBrightness = 1.0f; // Luminosité max
-            window.setAttributes(layoutParams);
-            statusTextView.setText("Écran en mode torche 🔆");
-        } else {
-            window.getDecorView().setBackgroundColor(getResources().getColor(android.R.color.black));
-            WindowManager.LayoutParams layoutParams = window.getAttributes();
-            layoutParams.screenBrightness = WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_NONE;
-            window.setAttributes(layoutParams);
-            statusTextView.setText("Écran normal 🌙");
+    private void toggleFlash() {
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                isFlashOn = !isFlashOn;
+                cameraManager.setTorchMode(cameraId, isFlashOn);
+                statusTextView.setText(isFlashOn ? getString(R.string.flash_on) : getString(R.string.flash_off));
+            }
+        } catch (CameraAccessException e) {
+            e.printStackTrace();
         }
     }
 

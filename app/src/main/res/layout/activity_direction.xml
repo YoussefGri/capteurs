@@ -35,7 +35,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Position Stable 📱"
+                android:text="@string/stable_position"
                 android:textSize="18sp"
                 android:textColor="@android:color/black"
                 android:layout_centerHorizontal="true"
@@ -71,7 +71,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Haut ⬆️"
+                android:text="@string/up"
                 android:textSize="18sp"
                 android:textColor="@android:color/black"
                 android:layout_centerHorizontal="true"
@@ -108,7 +108,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bas ⬆️"
+                android:text="@string/down"
                 android:textSize="18sp"
                 android:textColor="@android:color/black"
                 android:layout_centerHorizontal="true"
@@ -143,7 +143,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Gauche ⬆️"
+                android:text="@string/left"
                 android:textSize="18sp"
                 android:textColor="@android:color/black"
                 android:layout_centerHorizontal="true"
@@ -178,12 +178,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Droite ⬆️"
+                android:text="@string/right"
                 android:textSize="18sp"
                 android:textColor="@android:color/black"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/imageView"
-                android:layout_marginTop="8dp" />
+                android:layout_marginTop="8dp"
+                tools:ignore="NotSibling" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 

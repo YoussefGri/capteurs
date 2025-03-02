@@ -77,19 +77,19 @@ public class SensorUnavailableActivity extends Activity {
 
     private void initFeatureMap() {
         featureMap = new HashMap<>();
-        featureMap.put("Accelerometer", "Jeux, détection de mouvement, podomètre.");
-        featureMap.put("Gyroscope", "VR, stabilisation de l'appareil photo, jeux en 3D.");
-        featureMap.put("Magnetometer", "Boussole, navigation GPS améliorée.");
-        featureMap.put("Proximity Sensor", "Extinction automatique de l'écran lors des appels.");
-        featureMap.put("Light Sensor", "Ajustement automatique de la luminosité.");
-        featureMap.put("Pressure Sensor", "Prévisions météorologiques basées sur la pression.");
-        featureMap.put("Temperature Sensor", "Détection de la température ambiante.");
-        featureMap.put("Humidity Sensor", "Détection de l'humidité ambiante.");
-        featureMap.put("Gravity Sensor", "Optimisation du gyroscope et de l’accéléromètre.");
-        featureMap.put("Rotation Vector", "Jeux VR, orientation précise de l'écran.");
-        featureMap.put("Heart Rate Sensor", "Applications de suivi de la santé.");
-        featureMap.put("Step Counter", "Suivi des pas et activités sportives.");
-        featureMap.put("Step Detector", "Reconnaissance des mouvements de marche.");
+        featureMap.put("Accelerometer", getString(R.string.accelerometer_features));
+        featureMap.put("Gyroscope", getString(R.string.gyroscope_features));
+        featureMap.put("Magnetometer", getString(R.string.magnetometer_features));
+        featureMap.put("Proximity Sensor", getString(R.string.proximity_features));
+        featureMap.put("Light Sensor", getString(R.string.light_features));
+        featureMap.put("Pressure Sensor", getString(R.string.pressure_features));
+        featureMap.put("Temperature Sensor", getString(R.string.temperature_features));
+        featureMap.put("Humidity Sensor", getString(R.string.humidity_features));
+        featureMap.put("Gravity Sensor", getString(R.string.gravity_features));
+        featureMap.put("Rotation Vector", getString(R.string.rotation_features));
+        featureMap.put("Heart Rate Sensor", getString(R.string.heart_rate_features));
+        featureMap.put("Step Counter", getString(R.string.step_counter_features));
+        featureMap.put("Step Detector", getString(R.string.step_detector_features));
     }
 
     private void showUnavailableFeatureDialog(String sensorName) {
@@ -102,7 +102,7 @@ public class SensorUnavailableActivity extends Activity {
         MaterialButton btnClose = dialog.findViewById(R.id.dialog_close_button);
 
         sensorTitle.setText(sensorName);
-        featureList.setText(featureMap.getOrDefault(sensorName, "Aucune information disponible."));
+        featureList.setText(featureMap.getOrDefault(sensorName, getString(R.string.no_info_available)));
 
         btnClose.setOnClickListener(v -> dialog.dismiss());
 
